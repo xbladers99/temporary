@@ -9,8 +9,8 @@ for (i = 0; i < toggler.length; i++) {
   });
 }
 }
-
- 
+var strInterests = "";
+var ipinterests = document.getElementById("ipinterests");
 
 {//THIS IS TO ADD TOPICS
   topics=[]
@@ -24,7 +24,8 @@ function addnode(id)
       alert("Element already present");
       return;
     }
-     
+  strInterests += " " + newnode;
+  ipinterests.value = strInterests;
   topics.push(newnode);
   
   var i;

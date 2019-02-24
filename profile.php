@@ -1,4 +1,5 @@
-<!-- <?php
+ <!--
+ <?php
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -49,8 +50,8 @@ if ($conn->query($sql) === TRUE) {
 }
 
 ?>
- -->
-
+ 
+-->
 
 
  
@@ -66,25 +67,30 @@ $conn2 = new mysqli($servername, $username, $password, $dbname);
 if ($conn2->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-
+$name = $contact = $gender = $city = $branch = $interests = "";
 // $x=$_POST["firstname"];
 // $y=$_POST["lastname"];
 // $z=$_POST["email"];
+if(isset($_POST['name']) && isset($_POST['contact']) && isset($_POST['gender']) && isset($_POST['city']) && isset($_POST['branch']) && isset($_POST['ipinterests']))
+{
+	$name=$_POST['name'];
+	$contact=$_POST['contact'];
+	$gender=$_POST['gender'];
+	$city=$_POST['city'];
+	$branch=$_POST['branch'];
+	$interests = $_POST['ipinterests'];
+	echo $name." ".$contact." ".$gender." ".$city." ".$branch." ".$interests;
+	/*$sql2 = "INSERT INTO profile (name,contact,gender,city,branch)
+	VALUES ('$name','$contact','$gender','$city','$branch')";
 
-$name=$_POST['name'];
-$contact=$_POST['contact'];
-$gender=$_POST['gender'];
-$city=$_POST['city'];
-$branch=$_POST['branch'];
-
-
-$sql2 = "INSERT INTO profile (name,contact,gender,city,branch)
-VALUES ('$name','$contact','$gender','$city','$branch')";
-
-if ($conn2->query($sql2) === TRUE) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn2->error;
+	if ($conn2->query($sql2) === TRUE) {
+	    echo "New record created successfully";
+	} else {
+	    echo "Error: " . $sql . "<br>" . $conn2->error;
+	}*/
 }
+else 
+	echo "not set";
+
 
 ?> 
